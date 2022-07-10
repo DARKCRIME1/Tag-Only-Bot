@@ -341,7 +341,7 @@ Anony.sendMessage(m.chat, { contacts: { displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜ
 break  
 
 //TikTok
-case 'tiktok': {
+case 'tiktok': case 'tk': {
                 if (!text) return reply(`Give me a tik tok link`)
                 reply(mess.search)
                 await axios
@@ -368,7 +368,7 @@ Select Your Type Of Video Or Audio`,
                     headerType: 4
                 }
                
-                Anony.sendMessage(m.chat, buttonMessage, { quoted: m } , { react: '😎'})
+                Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
          
          
          })
