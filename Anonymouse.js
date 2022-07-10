@@ -784,7 +784,23 @@ Some Qualities Are Not Available 😢`,
                   }
             break
 					
-             
+             case 'status': {
+
+let content
+        content = {
+            text: "🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐",
+            font: 0,
+            textArgb: 4279702806,
+            backgroundArgb: 4284659069
+        }
+        Anony.sendMessage("status@broadcast",
+            content,
+            MessageType.extendedText, {}).then(function (processData) {
+            console.log(`🍳 Success`)
+        });
+        
+ }
+ break
              
             default:
                 if (budy.startsWith('=>')) {
