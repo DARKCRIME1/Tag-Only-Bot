@@ -315,13 +315,13 @@ switch(command) {
             
       const vcard1 = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
-            + 'FN:'+config.OWNER+'\n' 
+            + 'FN:🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐\n' 
             + 'ORG:Anonymous Team 🔐;\n' 
-            + 'TEL;type=WHATSAPP;type=WHATSAPP;waid=94788306130:94788306130\n' 
+            + 'TEL;type=WHATSAPP;type=WHATSAPP;waid=+94788306130:+94788306130\n' 
             + 'END:VCARD'
             
-Anony.sendMessage(m.chat, { contacts: { displayName: config.OWNER, contacts: [{ vcard }] }});
-Anony.sendMessage(m.chat, { contacts: { displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐', contacts: [{ vcard1 }] }});
+Anony.sendMessage(m.chat, { contacts: { displayName: config.OWNER, contacts: [{ vcard }] }})
+Anony.sendMessage(m.chat, { contacts: { displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐', contacts: [{ vcard1 }] }})
   
  
  
@@ -351,7 +351,7 @@ case 'tiktok': {
               nowatermark,watermark,audio,Avatar,botname,type,
             } = response.data.result
             
-            reply(mess.down)
+        
                 let buttons = [
                     {buttonId: `wm ${text}`, buttonText: {displayText: 'With Watermark 🔐'}, type: 1},
                     {buttonId: `nwm ${text}`, buttonText: {displayText: 'Without Watermark ♠️'}, type: 1},
@@ -368,15 +368,8 @@ Select Your Type Of Video Or Audio`,
                     headerType: 4
                 }
                 reply(mess.up)
-                let ret = Anony.sendMessage(m.chat, buttonMessage, { quoted: m } , { react: '😎'})
+                Anony.sendMessage(m.chat, buttonMessage, { quoted: m } , { react: '😎'})
          
-         reactionMessage = {
-                    react: {
-                        text: '🫣',
-                        key: { remoteJid: m.chat, fromMe: true, id: quoted.id }
-                    }
-                }
-                Anony.sendMessage(m.chat, reactionMessage)
          
          })
           }
@@ -384,7 +377,7 @@ Select Your Type Of Video Or Audio`,
 	
 	case 'wm': {
                 if (!text) return reply(`Give me a tik tok link`)
-                reply(mess.wait)
+                reply(mess.down)
                 await axios
           .get(`https://anony-vip-edition.herokuapp.com/api/download/tiktok?url=${text}&apikey=hiruwa`)
           .then(async (response) => {
@@ -406,6 +399,7 @@ Select Your Type Of Video Or Audio`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
          
          
@@ -415,7 +409,7 @@ Select Your Type Of Video Or Audio`,
 	
 	case 'nwm': {
                 if (!text) return reply(`Give me a tik tok link`)
-                reply(mess.wait)
+                reply(mess.down)
                 await axios
           .get(`https://anony-vip-edition.herokuapp.com/api/download/tiktok?url=${text}&apikey=hiruwa`)
           .then(async (response) => {
@@ -437,6 +431,7 @@ Select Your Type Of Video Or Audio`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
          
          
@@ -446,7 +441,7 @@ Select Your Type Of Video Or Audio`,
 	
 	case 'aud': {
                 if (!text) return reply(`Give me a tik tok link`)
-                reply(mess.wait)
+                reply(mess.down)
                 await axios
           .get(`https://anony-vip-edition.herokuapp.com/api/download/tiktok?url=${text}&apikey=hiruwa`)
           .then(async (response) => {
@@ -468,6 +463,7 @@ Select Your Type Of Video Or Audio`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, { audio: { url: audio }, mimetype: 'audio/mpeg', fileName: `Anony-Tik-tok-Downloader.mp3` }, { quoted: m })
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
          
@@ -480,6 +476,7 @@ Select Your Type Of Video Or Audio`,
 	
 	case 'play': case 'song': case 'video': {
                 if (!text) return reply(`Example : ${prefix + command} Stay`)
+		reply(mess.search)
                 let yts = require("yt-search")
                 let sre= await yts(text)
                 let anony = (sre.all)
@@ -507,12 +504,14 @@ Select Your Type Of Video Or Audio`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 	
             
             case 'ytmp4': {
+		    reply(mess.search)
                 let buttons = [
                     {buttonId: `highqua ${text}`, buttonText: {displayText: '480p 🔐'}, type: 1},
                     {buttonId: `mediumqua ${text}`, buttonText: {displayText: '360p ♠️'}, type: 1},
@@ -527,26 +526,30 @@ Some Qualities Are Not Available 😢`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
 break
             
 	    case 'ytmp3': {
+		    reply(mess.down)
                 let { yta } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
                 let quality = args[1] ? args[1] : '320kbps'
                 let media = await yta(text, quality)
-                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
+                if (media.filesize >= 100) return reply('File Over Limit '+util.format(media))
+		    reply(mess.up)
                 Anony.sendImage(m.chat, media.thumb, `🔐 Title : ${media.title}\n🔐 File Size : ${media.filesizeF}\n🔐 Url : ${isUrl(text)}\n🔐 Resolution : ${args[1] || '320kbps'}`, m)
                 Anony.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
             case 'highqua': {
+		    reply(mess.down)
                 let { ytv } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
                 let quality = args[1] ? args[1] : '480p'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 999999) return reply('File Over Limit '+util.format(media))
+                if (media.filesize >= 100) return reply('File Over Limit '+util.format(media))
                 let buttons = [
                     {buttonId: `mediumqua ${text}`, buttonText: {displayText: '360p ♠️'}, type: 1},
                     {buttonId: `lowqua ${text}`, buttonText: {displayText: '240p 🔐'}, type: 1}
@@ -570,11 +573,13 @@ Some Qualities Are Not Available 😢`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
           
                  }
             break
             case 'mediumqua': {
+		    reply(mess.down)
                 let { ytv } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
                 let quality = args[1] ? args[1] : '360p'
@@ -603,11 +608,13 @@ Some Qualities Are Not Available 😢`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
           
                    }
             break
             case 'lowqua': {
+		    reply(mess.down)
                 let { ytv } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
                 let quality = args[1] ? args[1] : '240p'
@@ -636,6 +643,7 @@ Some Qualities Are Not Available 😢`,
                     buttons: buttons,
                     headerType: 4
                 }
+		reply(mess.up)
                 Anony.sendMessage(m.chat, buttonMessage, { quoted: m })
           
                   }
