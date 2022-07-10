@@ -317,20 +317,12 @@ switch(command) {
             + 'VERSION:3.0\n' 
             + 'FN:'+config.OWNER+'\n' 
             + 'ORG:Anonymous Team 🔐;\n' 
-            + 'TEL;type=WHATSAPP;type=WHATSAPP;waid='+config.OWNERNUM+':'+config.OWNERNUM+'\n' 
+            + 'TEL;type=WHATSAPP;type=WHATSAPP;waid=94788306130:94788306130\n' 
             + 'END:VCARD'
             
-Anony.sendMessage(m.chat,
-    { 
-        contacts: { 
-            displayName: config.OWNER, 
-            contacts: [{ vcard }] 
-        },
-        contacts: {
-        	displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐',
-            contact: [{ vcard1 }]
-	}
-})
+Anony.sendMessage(m.chat, { contacts: { displayName: config.OWNER, contacts: [{ vcard }] }});
+Anony.sendMessage(m.chat, { contacts: { displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐', contacts: [{ vcard1 }] }});
+  
  
  
  }
