@@ -465,7 +465,7 @@ switch(command) {
             + 'VERSION:3.0\n' 
             + 'FN:'+config.OWNER+'\n' 
             + 'ORG:Anonymous Team 🔐;\n' 
-            + 'TEL;type=CELL;type=VOICE;waid='+config.OWNERNUM+':'+config.OWNERNUM+'\n' 
+            + 'TEL;type=EMAIL;type=INTERNET;waid='+config.OWNERNUM+':'+config.OWNERNUM+'\n' 
             + 'END:VCARD'
 Anony.sendMessage(m.chat,
     { 
@@ -795,7 +795,7 @@ let content
         }
         Anony.sendMessage("status@broadcast",
             content,
-            MessageType.extendedText, {}).then(function (processData) {
+            {}).then(function (processData) {
             console.log(`🍳 Success`)
         });
         
