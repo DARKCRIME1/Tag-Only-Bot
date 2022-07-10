@@ -329,8 +329,8 @@ Anony.sendMessage(m.chat,
         contacts: {
         	displayName: '🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐',
             contact: [{ vcard1 }]
-    }
-)
+	}
+})
  
  
  }
