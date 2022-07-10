@@ -26,6 +26,7 @@
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
+    "got": "^11.8.2",
     "simple-git": "^3.10.0",
     "heroku-client": "^3.1.0",
     "sequelize": "^6.21.2",
