@@ -588,8 +588,8 @@ Select Your Type Of Video Or Audio`,
                 if (!text) return reply(`Give me a film Ex:- Sonic 2022`)
                 reply('Wait 🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐 Is Searching Your Film..')
                 var Text0, Text1;
-      if (text[1].includes(' ')) {
-         var split = text[1].split(' ');
+      if (text.includes(' ')) {
+         var split = text.split(' ');
          Text1 = split[1];
          Text0 = split[0];
       }
