@@ -51,12 +51,6 @@ if (global.db) setInterval(async () => {
   }, 30 * 1000)
 
 
-store.readFromFile('./session.json')
-// saves the state to a file every 10s
-setInterval(() => {
-    store.writeToFile('./session.json')
-}, 10_000)
-
 async function startAnony() {
     const Anony = AnonymousConnect({
         logger: pino({ level: 'debug' }),
