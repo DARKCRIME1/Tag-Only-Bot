@@ -16,6 +16,41 @@
             "required": true,
             "value": "94771039631"
         }, 
+        "ALIVE_MESSAGE": {
+            "description": "Pleas enter Alive Message.",
+            "required": true,
+            "value": "Hi i am alive now"
+        }, 
+        "ANONY_SESSION": {
+            "description": "Pleas enter Your session.json code",
+            "required": true,
+            "value": "default"
+        }, 
+        "BOT_LOGO": {
+            "description": "Pleas enter Your bot logo direct link.",
+            "required": true,
+            "value": "https://telegra.ph/file/6852aab70c51bf2797244.jpg"
+        }, 
+        "VIDEO_DOWNLOAD": {
+            "description": "Pleas enter Your Video download message",
+            "required": true,
+            "value": "default"
+        }, 
+        "VIDEO_UPLOAD": {
+            "description": "Pleas enter Your video upload message",
+            "required": true,
+            "value": "default"
+        }, 
+        "SONG_DOWNLOAD": {
+            "description": "Pleas enter Your song download message.",
+            "required": true,
+            "value": "default"
+        }, 
+        "SONG_UPLOAD": {
+            "description": "Pleas enter Your song upload message.",
+            "required": true,
+            "value": "default"
+        }, 
         "HEROKU_API_KEY": {
             "description": "Pleas enter your Heroku API Key.",
             "required": true
