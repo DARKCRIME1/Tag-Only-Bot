@@ -587,13 +587,8 @@ Select Your Type Of Video Or Audio`,
 	case 'sub': {
                 if (!text) return reply(`Give me a film Ex:- Sonic 2022`)
                 reply('Wait 🔐 ᴀɴᴏɴʏᴍᴏᴜꜱ ʙᴏᴛ 🔐 Is Searching Your Film..')
-                var Text0, Text1;
-      if (text.includes(' ')) {
-         var split = text.split(' ');
-         Text1 = split[1];
-         Text0 = split[0];
-      }
-                let url = `http://www.omdbapi.com/?t=${text0}&y=${text1}&apikey=742b2d09`
+                
+                let url = `http://www.omdbapi.com/?t=${text}&apikey=742b2d09`
 		const response = await got(url);
 		const json = JSON.parse(response.body);
 		if (json.Response != 'True') reply('Search With Film Year')
