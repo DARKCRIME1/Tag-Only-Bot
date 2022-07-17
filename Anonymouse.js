@@ -442,7 +442,7 @@ break
                 reactionMessage = {
                     react: {
                         text: args[0],
-                        key: { remoteJid: m.chat, fromMe: false, id: quoted.id }
+                        key: { remoteJid: m.chat, id: quoted.id }
                     }
                 }
                 Anony.sendMessage(m.chat, reactionMessage)
